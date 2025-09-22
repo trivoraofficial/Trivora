@@ -32,7 +32,7 @@ interface TradingResponse {
 
 interface DiagramProps {
   pattern?: string;
-  data?: any;
+  // Removed unused data parameter
 }
 
 // Icons
@@ -74,7 +74,6 @@ const ClearIcon: React.FC = () => (
 
 const AdvancedCandlestickDiagram: React.FC<DiagramProps> = ({
   pattern,
-  data,
 }) => {
   const generateCandlesticks = () => {
     // Generate realistic candlestick data based on pattern
@@ -150,7 +149,6 @@ const AdvancedCandlestickDiagram: React.FC<DiagramProps> = ({
         {candles.map((candle, i) => {
           const isBullish = candle.close > candle.open;
           const bodyHeight = Math.abs(candle.close - candle.open);
-          const bodyTop = Math.min(candle.open, candle.close);
 
           return (
             <g key={i}>
@@ -201,9 +199,7 @@ const AdvancedCandlestickDiagram: React.FC<DiagramProps> = ({
   );
 };
 
-const InteractiveSupportResistanceDiagram: React.FC<DiagramProps> = ({
-  data,
-}) => {
+const InteractiveSupportResistanceDiagram: React.FC = () => {
   const [hoveredLevel, setHoveredLevel] = useState<string | null>(null);
 
   const levels = [
@@ -559,11 +555,11 @@ const generateAdvancedTradingResponse = async (
 
   const lowerPrompt = prompt.toLowerCase();
 
-  // Context-aware response generation
-  const previousTopics = context
-    .filter((msg) => msg.from === "user")
-    .map((msg) => msg.text.toLowerCase())
-    .join(" ");
+  // Remove unused variable by commenting it out or removing
+  // const previousTopics = context
+  //   .filter((msg) => msg.from === "user")
+  //   .map((msg) => msg.text.toLowerCase())
+  //   .join(" ");
 
   // Advanced response based on context and complexity
   if (
@@ -881,7 +877,8 @@ const EnhancedAITradingTutor: React.FC = () => {
   );
 
   const messagesEndRef = useRef<HTMLDivElement>(null);
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  // Removed unused fileInputRef
+  // const fileInputRef = useRef<HTMLInputElement>(null);
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -894,29 +891,6 @@ const EnhancedAITradingTutor: React.FC = () => {
   const generateMessageId = useCallback((): string => {
     return `msg_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
   }, []);
-
-  const handleImageUpload = useCallback(
-    (event: React.ChangeEvent<HTMLInputElement>) => {
-      const file = event.target.files?.[0];
-      if (file) {
-        const reader = new FileReader();
-        reader.onload = (e: ProgressEvent<FileReader>) => {
-          const result = e.target?.result as string;
-          if (result) {
-            setUploadedImage({
-              data: result.split(",")[1],
-              mimeType: file.type,
-            });
-            setPrompt(
-              "Please provide a comprehensive analysis of this trading chart including technical patterns, support/resistance levels, trend analysis, and specific trading recommendations."
-            );
-          }
-        };
-        reader.readAsDataURL(file);
-      }
-    },
-    []
-  );
 
   const sendMessage = useCallback(
     async (chapterPrompt?: string): Promise<void> => {
