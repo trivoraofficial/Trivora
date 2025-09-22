@@ -97,12 +97,16 @@ export default function TrivoraLanding() {
                 our comprehensive courses, live demos, and hands-on tutorials.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors">
-                  <Link href="/Robot"> Start Learning</Link>
-                </button>
-                <button className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                  <Link href="/Broker"> Watch Demo</Link>
-                </button>
+                <Link href="/Robot">
+                  <button className="bg-orange-500 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-orange-600 transition-colors">
+                    Start Learning
+                  </button>
+                </Link>
+                <Link href="/Broker">
+                  <button className="border border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    Watch Demo
+                  </button>
+                </Link>
               </div>
             </motion.div>
 
@@ -219,9 +223,11 @@ export default function TrivoraLanding() {
               Join thousands of successful traders who have transformed their
               financial future with Trivora.
             </p>
-            <button className="bg-white text-orange-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
-              Get Started Today
-            </button>
+            <Link href="/Robot">
+              <button className="bg-white text-orange-500 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors">
+                Get Started Today
+              </button>
+            </Link>
           </motion.div>
         </div>
       </section>
