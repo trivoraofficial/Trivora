@@ -546,7 +546,6 @@ Message.displayName = "Message";
 // Enhanced AI Response Generator with Real Intelligence
 const generateAdvancedTradingResponse = async (
   prompt: string,
-  context: Message[]
 ): Promise<TradingResponse> => {
   // Simulate advanced AI processing
   const delay = (ms: number) =>
@@ -555,13 +554,7 @@ const generateAdvancedTradingResponse = async (
 
   const lowerPrompt = prompt.toLowerCase();
 
-  // Remove unused variable by commenting it out or removing
-  // const previousTopics = context
-  //   .filter((msg) => msg.from === "user")
-  //   .map((msg) => msg.text.toLowerCase())
-  //   .join(" ");
 
-  // Advanced response based on context and complexity
   if (
     lowerPrompt.includes("risk") ||
     lowerPrompt.includes("money management")
@@ -912,10 +905,10 @@ const EnhancedAITradingTutor: React.FC = () => {
       setUploadedImage(null);
 
       try {
-        // Generate intelligent response based on context
+      
         const response = await generateAdvancedTradingResponse(
           currentPrompt,
-          messages
+   
         );
         const aiMessageId = generateMessageId();
 
