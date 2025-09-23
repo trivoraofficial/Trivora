@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
+import PricingPage from "../Pricing/page";
 
 const TrendingIcon = () => (
   <svg className="w-8 h-8" fill="currentColor" viewBox="0 0 20 20">
@@ -206,6 +207,7 @@ export default function TrivoraLanding() {
           </div>
         </div>
       </section>
+      <PricingPage />
 
       {/* CTA Section */}
       <section className="bg-orange-500 py-20">

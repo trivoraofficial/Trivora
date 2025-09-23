@@ -72,6 +72,15 @@ export default function TrivoraNav() {
                     Home
                   </Link>
                 </li>
+
+                  <li>
+                  <Link
+                    href="/Pricing"
+                    className="text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors"
+                  >
+                    Pricing
+                  </Link>
+                </li>
                 <li>
                   <Link
                     href="/Courses"
@@ -153,6 +162,15 @@ export default function TrivoraNav() {
                     className="block text-gray-700 dark:text-gray-300 hover:text-orange-500"
                   >
                     Home
+                  </Link>
+                </li>
+
+                      <li>
+                  <Link
+                    href="/Pricing"
+                    className="text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors"
+                  >
+                    Pricing
                   </Link>
                 </li>
                 <li>
