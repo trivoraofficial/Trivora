@@ -76,15 +76,18 @@ export default function Courses() {
     },
     {
       title: "Trading Tutorials",
-      image: "/tutorials.png"
+      image: "/tutorials.png",
+      href: "/Tutorials"
     },
     {
       title: "Demo live preview",
-      image: "/live.png"
+      image: "/live.png",
+      href: "/Broker"
     },
     {
       title: "Penetrate in trading with Ai",
-      image: "/ai.png"
+      image: "/ai.png",
+      href: "/Robot"
     },
     {
       title: "Special Trading Exercises",

@@ -3,12 +3,7 @@
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
-import {
-  SignInButton,
-  SignedIn,
-  SignedOut,
-  UserButton,
-} from "@clerk/nextjs";
+import { SignInButton, SignedIn, SignedOut, UserButton } from "@clerk/nextjs";
 
 const MenuIcon = () => (
   <svg
@@ -92,7 +87,7 @@ export default function TrivoraNav() {
                   </Link>
                 </li>
 
-                  <li>
+                <li>
                   <Link
                     href="/Pricing"
                     className="text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors"
@@ -110,7 +105,7 @@ export default function TrivoraNav() {
                 </li>
                 <li>
                   <Link
-                    href="#"
+                    href="/Tutorials"
                     className="text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors"
                   >
                     Tutorials
@@ -190,7 +185,7 @@ export default function TrivoraNav() {
                   </Link>
                 </li>
 
-                      <li>
+                <li>
                   <Link
                     href="/Pricing"
                     className="text-gray-700 dark:text-gray-300 hover:text-orange-500 transition-colors"

@@ -186,24 +186,32 @@ export default function TrivoraLanding() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <FeatureCard
-              icon={<TrendingIcon />}
-              title="Live Market Analysis"
-              description="Get real-time insights and analysis of market trends with our expert-led live sessions."
-              delay={0.1}
-            />
-            <FeatureCard
-              icon={<BookIcon />}
-              title="Comprehensive Courses"
-              description="From basics to advanced strategies, our structured courses cover everything you need to know."
-              delay={0.2}
-            />
-            <FeatureCard
-              icon={<PlayIcon />}
-              title="Interactive Tutorials"
-              description="Learn through hands-on tutorials and practical exercises designed by industry professionals."
-              delay={0.3}
-            />
+            <Link href="/Broker">
+              <FeatureCard
+                icon={<TrendingIcon />}
+                title="Live Market Analysis"
+                description="Get real-time insights and analysis of market trends with our expert-led live sessions."
+                delay={0.1}
+              />
+            </Link>
+
+            <Link href="/Courses">
+              <FeatureCard
+                icon={<BookIcon />}
+                title="Comprehensive Courses"
+                description="From basics to advanced strategies, our structured courses cover everything you need to know."
+                delay={0.2}
+              />
+            </Link>
+
+            <Link href="/Tutorials">
+              <FeatureCard
+                icon={<PlayIcon />}
+                title="Interactive Tutorials"
+                description="Learn through hands-on tutorials and practical exercises designed by industry professionals."
+                delay={0.3}
+              />
+            </Link>
           </div>
         </div>
       </section>
