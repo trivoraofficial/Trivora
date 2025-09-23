@@ -872,7 +872,7 @@ const EnhancedAITradingTutor: React.FC = () => {
 
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+  }, []); // Fixed: removed unnecessary dependencies
 
   useEffect(() => {
     scrollToBottom();
