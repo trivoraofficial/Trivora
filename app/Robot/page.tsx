@@ -929,7 +929,7 @@ const EnhancedAITradingTutor: React.FC = () => {
         setIsLoading(false);
       }
     },
-    [prompt, uploadedImage, isLoading, generateMessageId, messages]
+    [prompt, uploadedImage, isLoading, generateMessageId]
   );
 
   const clearChat = useCallback(() => {
