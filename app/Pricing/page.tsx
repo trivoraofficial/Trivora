@@ -163,6 +163,17 @@ export default function PricingPage() {
       // Only prevent navigation if we can open Paddle checkout
       e.preventDefault();
       paddle.Checkout.open({
+        settings: {
+          displayMode: "overlay",
+          // Optional: choose a variant if you prefer
+          // variant: "one-page",
+          // Optional: set theme/locale
+          // theme: "light",
+          // locale: "en",
+          // You may set explicit URLs after hosting (must match approved domain)
+          // successUrl: "https://trivora-delta.vercel.app/success",
+          // cancelUrl: "https://trivora-delta.vercel.app/cancel",
+        },
         items: [{ priceId, quantity: 1 }],
       });
     },
