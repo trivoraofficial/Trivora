@@ -72,9 +72,7 @@ const ClearIcon: React.FC = () => (
   </svg>
 );
 
-const AdvancedCandlestickDiagram: React.FC<DiagramProps> = ({
-  pattern,
-}) => {
+const AdvancedCandlestickDiagram: React.FC<DiagramProps> = ({ pattern }) => {
   const generateCandlesticks = () => {
     // Generate realistic candlestick data based on pattern
     const basePrice = 100;
@@ -545,7 +543,7 @@ Message.displayName = "Message";
 
 // Enhanced AI Response Generator with Real Intelligence
 const generateAdvancedTradingResponse = async (
-  prompt: string,
+  prompt: string
 ): Promise<TradingResponse> => {
   // Simulate advanced AI processing
   const delay = (ms: number) =>
@@ -553,7 +551,6 @@ const generateAdvancedTradingResponse = async (
   await delay(2000 + Math.random() * 1500);
 
   const lowerPrompt = prompt.toLowerCase();
-
 
   if (
     lowerPrompt.includes("risk") ||
@@ -905,11 +902,7 @@ const EnhancedAITradingTutor: React.FC = () => {
       setUploadedImage(null);
 
       try {
-      
-        const response = await generateAdvancedTradingResponse(
-          currentPrompt,
-   
-        );
+        const response = await generateAdvancedTradingResponse(currentPrompt);
         const aiMessageId = generateMessageId();
 
         const aiMessage: Message = {

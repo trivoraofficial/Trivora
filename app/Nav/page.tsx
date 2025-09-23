@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import {
@@ -44,6 +44,25 @@ const CloseIcon = () => (
 
 export default function TrivoraNav() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [planLabel, setPlanLabel] = useState<string | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    const fetchPlan = async () => {
+      try {
+        const res = await fetch("/api/plan", { cache: "no-store" });
+        if (!res.ok) return; // likely 401 when signed out
+        const data = await res.json();
+        if (!cancelled && data?.label) setPlanLabel(data.label as string);
+      } catch {
+        // ignore
+      }
+    };
+    fetchPlan();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
 
   return (
     <div className="bg-gray-50 dark:bg-gray-900 transition-colors duration-300 sticky top-0 z-50">
@@ -130,6 +149,12 @@ export default function TrivoraNav() {
                     </SignInButton>
                   </SignedOut>
                   <SignedIn>
+                    {/* Small plan badge (non-intrusive) */}
+                    {planLabel && (
+                      <span className="mr-3 text-xs px-2 py-1 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
+                        {planLabel}
+                      </span>
+                    )}
                     <UserButton />
                   </SignedIn>
                 </li>
@@ -222,6 +247,12 @@ export default function TrivoraNav() {
                     </SignInButton>
                   </SignedOut>
                   <SignedIn>
+                    {/* Small plan badge (non-intrusive) */}
+                    {planLabel && (
+                      <span className="mr-3 text-xs px-2 py-1 rounded-full bg-gray-200 text-gray-800 dark:bg-gray-700 dark:text-gray-200 border border-gray-300 dark:border-gray-600">
+                        {planLabel}
+                      </span>
+                    )}
                     <UserButton />
                   </SignedIn>
                 </li>

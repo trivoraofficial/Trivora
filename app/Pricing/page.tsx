@@ -151,6 +151,44 @@ export default function PricingPage() {
         if (paddleInstance) setPaddle(paddleInstance);
       }
     );
+
+    // Listen for Paddle checkout events to persist plan after successful payment
+    const onMessage = async (event: MessageEvent) => {
+      // Ensure message is from Paddle domains (sandbox)
+      const origin = event.origin || "";
+      const allowedOrigins = [
+        "https://sandbox-buy.paddle.com",
+        "https://sandbox-checkout.paddle.com",
+        "https://sandbox-checkout-service.paddle.com",
+      ];
+      if (!allowedOrigins.some((o) => origin.startsWith(o))) return;
+
+      const data: any = event.data;
+      // Different shapes have been observed; check common fields
+      const name = data?.event || data?.event_name;
+      if (name === "checkout.completed") {
+        // Try to extract priceId from items in payload
+        const items = data?.data?.items || data?.items || [];
+        const first = Array.isArray(items) ? items[0] : undefined;
+        const priceId: string | undefined = first?.price?.id || first?.priceId || first?.price_id;
+        try {
+          await fetch("/api/plan", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ priceId }),
+          });
+          // Optionally, you could show a toast or trigger a refresh
+          // but we avoid UI changes per requirement
+        } catch (e) {
+          console.error("Failed to persist plan after checkout:", e);
+        }
+      }
+    };
+    window.addEventListener("message", onMessage);
+
+    return () => {
+      window.removeEventListener("message", onMessage);
+    };
   }, []);
 
   const handleChoosePlan = useCallback(
