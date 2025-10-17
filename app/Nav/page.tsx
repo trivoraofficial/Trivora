@@ -33,7 +33,6 @@ const Nav = () => {
 
   return (
     <div className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
-   
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
           scrolled
@@ -70,14 +69,14 @@ const Nav = () => {
               >
                 Pricing
               </Link>
-                <Link
+              <Link
                 href="/Refund"
                 className="hover:text-purple-400 transition-colors"
               >
                 Refund
               </Link>
-                <Link
-                href="/terms"
+              <Link
+                href="/Term"
                 className="hover:text-purple-400 transition-colors"
               >
                 Terms of service
