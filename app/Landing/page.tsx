@@ -8,12 +8,9 @@ import Footer from "../footer/page";
 
 const Landing = () => {
   const [scrolled, setScrolled] = useState(false);
-  const [activeTab, setActiveTab] = useState("features");
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
@@ -134,6 +131,7 @@ const Landing = () => {
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white">
       {/* Navigation */}
       <Nav />
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
@@ -286,7 +284,8 @@ const Landing = () => {
       </section>
 
       {/* Pricing Section */}
-      <PricingPage  />
+      <PricingPage />
+
       {/* Terms & Verification Section */}
       <section id="terms" className="py-20 px-6">
         <div className="max-w-4xl mx-auto">
@@ -301,7 +300,7 @@ const Landing = () => {
                   <ShieldIcon />
                   Secure Payment Processing
                 </h3>
-                <p className="leading-relaxed">
+                <p>
                   All payments are processed securely through Paddle, our
                   trusted payment partner. Paddle is a registered Merchant of
                   Record and handles all payment processing, tax collection, and
@@ -313,38 +312,30 @@ const Landing = () => {
                 <h3 className="text-xl font-semibold text-white mb-3">
                   Payment Verification Requirements
                 </h3>
-                <p className="leading-relaxed mb-3">
+                <p className="mb-3">
                   To ensure security and prevent fraud, Paddle may require
                   verification of your payment information. This process
                   includes:
                 </p>
                 <ul className="space-y-2 ml-6">
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
-                    <span>
-                      Identity verification through official documentation
-                      (government-issued ID, passport, or driver's license)
-                    </span>
+                    <span className="text-purple-400 mt-1">•</span> Identity
+                    verification through official documentation
+                    (government-issued ID, passport, or driver's license)
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
-                    <span>
-                      Payment method verification (bank statement or credit card
-                      statement)
-                    </span>
+                    <span className="text-purple-400 mt-1">•</span> Payment
+                    method verification (bank statement or credit card
+                    statement)
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
-                    <span>
-                      Address verification matching your billing information
-                    </span>
+                    <span className="text-purple-400 mt-1">•</span> Address
+                    verification matching your billing information
                   </li>
                   <li className="flex items-start gap-2">
-                    <span className="text-purple-400 mt-1">•</span>
-                    <span>
-                      Additional information may be requested for high-value
-                      transactions or if suspicious activity is detected
-                    </span>
+                    <span className="text-purple-400 mt-1">•</span> Additional
+                    information may be requested for high-value transactions or
+                    if suspicious activity is detected
                   </li>
                 </ul>
               </div>
@@ -353,7 +344,7 @@ const Landing = () => {
                 <h3 className="text-xl font-semibold text-white mb-3">
                   Service Description
                 </h3>
-                <p className="leading-relaxed">
+                <p>
                   Trivora provides online programming education courses and
                   resources. Upon successful payment verification and
                   processing, you will receive immediate access to your
@@ -366,12 +357,11 @@ const Landing = () => {
                 <h3 className="text-xl font-semibold text-white mb-3">
                   Refund Policy
                 </h3>
-                <p className="leading-relaxed">
-                  We offer a 30-day money-back guarantee for all paid plans. If
-                  you're not satisfied with your purchase, contact our support
-                  team within 30 days of your purchase date for a full refund.
-                  Refunds are processed through Paddle and may take 5-10
-                  business days to appear in your account.
+                <p>
+                  We offer a 30-day money-back guarantee for all paid plans.
+                  Contact our support team within 30 days of your purchase date
+                  for a full refund. Refunds are processed through Paddle and
+                  may take 5-10 business days to appear in your account.
                 </p>
               </div>
 
@@ -379,13 +369,41 @@ const Landing = () => {
                 <h3 className="text-xl font-semibold text-white mb-3">
                   Subscription Management
                 </h3>
-                <p className="leading-relaxed">
+                <p>
                   You can manage your subscription, update payment methods, or
                   cancel at any time through your account dashboard.
                   Cancellations take effect at the end of your current billing
                   period, and you will retain access to all materials until that
                   date.
                 </p>
+              </div>
+
+              {/* Legal & Contact Links */}
+              <div className="mt-6 flex flex-col sm:flex-row gap-4">
+                <Link
+                  href="/privacy"
+                  className="text-purple-400 underline hover:text-purple-200"
+                >
+                  Privacy Policy
+                </Link>
+                <Link
+                  href="/terms"
+                  className="text-purple-400 underline hover:text-purple-200"
+                >
+                  Terms of Service
+                </Link>
+                <Link
+                  href="/refund"
+                  className="text-purple-400 underline hover:text-purple-200"
+                >
+                  Refund Policy
+                </Link>
+                <a
+                  href="mailto:Trivora00@gmail.com"
+                  className="text-purple-400 underline hover:text-purple-200"
+                >
+                  Contact Support
+                </a>
               </div>
 
               <div className="bg-purple-500/10 border border-purple-500/30 rounded-lg p-6 mt-8">

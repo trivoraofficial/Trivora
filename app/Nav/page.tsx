@@ -76,11 +76,17 @@ const Nav = () => {
               >
                 Refund
               </Link>
-              <Link
-                href="/terms"
+                <Link
+                href="/Terms"
                 className="hover:text-purple-400 transition-colors"
               >
-                Terms and Privacy
+                Terms of service
+              </Link>
+              <Link
+                href="/Privacy"
+                className="hover:text-purple-400 transition-colors"
+              >
+                Privacy
               </Link>
             </div>
             <button className="bg-gradient-to-r from-purple-500 to-pink-500 px-6 py-2 rounded-lg hover:shadow-lg hover:shadow-purple-500/50 transition-all">
