@@ -70,6 +70,12 @@ const Nav = () => {
               >
                 Pricing
               </Link>
+                <Link
+                href="/Refund"
+                className="hover:text-purple-400 transition-colors"
+              >
+                Refund
+              </Link>
               <Link
                 href="/terms"
                 className="hover:text-purple-400 transition-colors"
