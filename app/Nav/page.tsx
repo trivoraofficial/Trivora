@@ -77,7 +77,7 @@ const Nav = () => {
                 Refund
               </Link>
                 <Link
-                href="/Terms"
+                href="/terms"
                 className="hover:text-purple-400 transition-colors"
               >
                 Terms of service
