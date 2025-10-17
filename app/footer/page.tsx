@@ -130,7 +130,7 @@ const Footer = () => {
               <ul className="space-y-2 text-gray-400 text-sm">
                 <li>
                   <Link
-                    href="/terms"
+                    href="/Term"
                     className="hover:text-purple-400 transition-colors"
                   >
                     Terms of Service
